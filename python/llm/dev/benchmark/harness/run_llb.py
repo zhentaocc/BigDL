@@ -58,12 +58,17 @@ def parse_args():
     parser.add_argument("--check_integrity", action="store_true")
     parser.add_argument("--write_out", action="store_true", default=False)
     parser.add_argument("--output_base_path", type=str, default=None)
+    parser.add_argument("--replace_evaluate", action="store_true")
 
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
+
+    if args.replace_evaluate:
+        from evaluator import evaluate
+        evaluator.evaluate = evaluate
 
     assert not args.provide_description  # not implemented
 
