@@ -46,7 +46,7 @@ jobs:
         id: echo_output
         shell: bash
         run: |
-          echo result=${{ matrix.model_name }} >> $GITHUB_OUTPUT
+          echo 'result=${{ matrix.model_name }}' >> $GITHUB_OUTPUT
           
   get-output:
     needs: llm-harness-evalution
@@ -74,4 +74,5 @@ jobs:
       - name: print
         shell: bash
         run: |
-          echo ${{ needs.llm-harness-evalution.outputs.output.result}} 
+          echo ${{ needs.llm-harness-evalution.outputs.output}} 
+          echo ${{ needs.llm-harness-evalution.outputs}} 
