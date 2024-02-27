@@ -46,11 +46,13 @@ jobs:
       - name: Restore cache
         uses: actions/cache/restore@v3
         with:
+          path: cache
           key: temp-txt
       - name: verify file content
         shell: bash
         run: |
-          cat temp-txt
+          ls cache
+          cat cache/temp-txt
       - name: create temp.txt
         shell: bash
         run: |
