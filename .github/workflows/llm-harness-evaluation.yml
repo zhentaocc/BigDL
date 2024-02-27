@@ -50,7 +50,7 @@ jobs:
           echo "hello" >> temp.txt
      
       - name: Cache HTML and CSV
-        uses: actions/save@v3
+        uses: actions/cache/save@v3
         with:
           path: |
             ./*.txt
