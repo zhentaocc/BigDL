@@ -43,6 +43,14 @@ jobs:
   llm-harness-summary:
     runs-on: ubuntu-latest
     steps:
+      - name: Restore cache
+        uses: actions/cache/restore@v3
+        with:
+          key: temp-txt
+      - name: verify file content
+        shell: bash
+        run: |
+          cat temp-txt
       - name: create temp.txt
         shell: bash
         run: |
