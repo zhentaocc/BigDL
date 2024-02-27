@@ -44,11 +44,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Restore cache
+        id: cache
         uses: actions/cache/restore@v3
         with:
           path: cache
           key: temp-txt
       - name: verify file content
+        if: steps.cache.outputs.cache-hit == 'true'
         shell: bash
         run: |
           ls cache
